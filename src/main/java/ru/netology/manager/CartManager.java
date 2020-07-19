@@ -1,8 +1,10 @@
 package ru.netology.manager;
 
+import lombok.Getter;
 import ru.netology.domain.PurchaseItem;
 
 public class CartManager {
+    @Getter
     private PurchaseItem[] items = new PurchaseItem[0];
 
     public void add(PurchaseItem item) {
