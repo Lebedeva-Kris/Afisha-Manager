@@ -5,8 +5,8 @@ import ru.netology.domain.PurchaseItem;
 public class CartManager {
     private PurchaseItem[] items = new PurchaseItem[0];
 
-    public void add(PurchaseItem item){
-        int length = items.length+1;
+    public void add(PurchaseItem item) {
+        int length = items.length + 1;
         PurchaseItem[] tmp = new PurchaseItem[length];
         System.arraycopy(items, 0, tmp, 0, items.length);
         int lastIndex = tmp.length - 1;
@@ -14,7 +14,7 @@ public class CartManager {
         items = tmp;
     }
 
-    public PurchaseItem[] getAll(){
+    public PurchaseItem[] getAll() {
         PurchaseItem[] result = new PurchaseItem[items.length];
         for (int i = 0; i < result.length; i++) {
             int index = result.length - i - 1;
@@ -23,11 +23,11 @@ public class CartManager {
         return result;
     }
 
-    public void removeById(int id){
+    public void removeById(int id) {
         int length = items.length - 1;
         PurchaseItem[] tmp = new PurchaseItem[length];
         int index = 0;
-        for (PurchaseItem item : items){
+        for (PurchaseItem item : items) {
             if (item.getId() != id) {
                 tmp[index] = item;
                 index++;
