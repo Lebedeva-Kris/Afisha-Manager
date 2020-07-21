@@ -48,15 +48,15 @@ public class AfishaManagerTestWithAllFilms {
         assertArrayEquals(expected, actual);
     }
 
-//    @Test
-//    public void shouldAddLessFilms() {
-//        manager = new AfishaManager(5);
-//        showsUp();
-//
-//        DisplayFilm[] actual = manager.getShowLast();
-//        DisplayFilm[] expected = new DisplayFilm[]{tenth, ninth, eight, seventh, sixth};
-//
-//        assertArrayEquals(expected, actual);
-//    }
+    @Test
+    public void shouldAddLessFilms() {
+        manager = new AfishaManager(5);
+        showsUp();
+
+        DisplayFilm[] actual = manager.getShowLast();
+        DisplayFilm[] expected = new DisplayFilm[]{fifth, fourth, third, second, first};
+
+        assertArrayEquals(expected, actual);
+    }
 
 }
