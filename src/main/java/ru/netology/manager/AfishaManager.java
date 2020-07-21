@@ -2,11 +2,16 @@ package ru.netology.manager;
 
 import lombok.Getter;
 import ru.netology.domain.DisplayFilm;
+import ru.netology.repository.AfishaRepository;
 
 public class AfishaManager {
     @Getter
     private int quantityFilms = 10;
-    private DisplayFilm[] films = new DisplayFilm[0];
+    private AfishaRepository repository;
+
+    public AfishaManager(AfishaRepository repository) {
+        this.repository = repository;
+    }
 
     public AfishaManager() {
     }
@@ -18,15 +23,12 @@ public class AfishaManager {
     }
 
     public void add(DisplayFilm film) {
-        int length = films.length + 1;
-        DisplayFilm[] tmp = new DisplayFilm[length];
-        System.arraycopy(films, 0, tmp, 0, films.length);
-        int lastIndex = tmp.length - 1;
-        tmp[lastIndex] = film;
-        films = tmp;
+        repository.save(film);
     }
 
     public DisplayFilm[] getShowLast() {
+        DisplayFilm[] films = repository.findAll();
+
         int lengthDisplayFilm = Math.min(films.length, quantityFilms);
         DisplayFilm[] result = new DisplayFilm[lengthDisplayFilm];
         for (int i = 0; i < result.length; i++) {
