@@ -27,7 +27,8 @@ public class AfishaManager {
     }
 
     public DisplayFilm[] getShowLast() {
-        DisplayFilm[] result = new DisplayFilm[films.length];
+        int lengthDisplayFilm = Math.min(films.length, quantityFilms);
+        DisplayFilm[] result = new DisplayFilm[lengthDisplayFilm];
         for (int i = 0; i < result.length; i++) {
             int index = result.length - i - 1;
             result[i] = films[index];
