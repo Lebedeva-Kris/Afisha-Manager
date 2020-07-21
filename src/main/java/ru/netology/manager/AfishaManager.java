@@ -16,10 +16,10 @@ public class AfishaManager {
     public AfishaManager() {
     }
 
-    public AfishaManager(int quantityFilms) {
-        if (quantityFilms > 0) {
-            this.quantityFilms = quantityFilms;
-        }
+    public AfishaManager(int quantityFilms, AfishaRepository repository) {
+        this.repository = repository;
+        if (quantityFilms > 0)
+        this.quantityFilms = quantityFilms;
     }
 
     public void add(DisplayFilm film) {
